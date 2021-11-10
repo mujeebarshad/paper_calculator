@@ -8,12 +8,12 @@ import { StyleSheet, ImageBackground, ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeWeight } from '../store/paperWeight';
 
-import ViewCalculator from './ViewCalculator';
-import StatsView from './StatsView';
-import HeaderView from './HeaderView';
-import TabLinkView from './TabLinkView';
-import PageSizeView from './PageSizeView';
-import OptionsView from './OptionsView';
+import ViewCalculator from '../containers/ViewCalculator';
+import StatsView from '../containers/StatsView';
+import HeaderView from '../components/HeaderView';
+import TabLinkView from '../containers/TabLinkView';
+import PageSizeView from '../containers/PageSizeView';
+import OptionsView from '../containers/OptionsView';
 
 const grammageOptions = [
   { id: 1, name: 'DIN A', value: 10 },
@@ -45,10 +45,9 @@ function MainScreen() {
     dispatch(changeWeight(paperWeight));
   });
 
-
   return (
     <ScrollView style={styles.container}>
-      <HeaderView />
+      <HeaderView title="Paper Calculator" />
       <ImageBackground
         source={require("../assets/bg1.png")}
         imageStyle={{ borderRadius: 10}}
